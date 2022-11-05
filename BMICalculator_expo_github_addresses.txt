@@ -1,0 +1,3 @@
+https://expo.dev/@cg220633/BMICalculator?serviceType=classic&distribution=expo-go 
+
+https://github.com/Blint0076/BMICalculator-cg220633

@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 
 const heightKey = '@MyApp:key1';
 const weightKey = '@MyApp:key2';
+const resultsKey = '@MyApp:key3';
 
 export default class App extends Component {
   state = {
@@ -21,10 +22,12 @@ export default class App extends Component {
 
   onLoad = async () => {
     try {
-      const weight = await AsyncStorage.getItem(weightKey);
+      //const weight = await AsyncStorage.getItem(weightKey);
+      const results = await AsyncStorage.getItem(resultsKey);
       const height = await AsyncStorage.getItem(heightKey);
-      this.setState({ weight });
+      //this.setState({ weight });
       this.setState({ height });
+      this.setState({ results });
     } catch (error) {
       Alert.alert('Error', 'There was an error loading your data');
     }
@@ -35,6 +38,7 @@ export default class App extends Component {
     try {
       await AsyncStorage.setItem(weightKey, this.state.weight);
       await AsyncStorage.setItem(heightKey, this.state.height);
+      await AsyncStorage.setItem(resultsKey, this.state.results);
       Alert.alert('Saved', 'Successfully saved on device');
     } catch (error) {
       Alert.alert('Error', 'There was an error saving your data');
